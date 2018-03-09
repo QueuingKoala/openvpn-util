@@ -128,5 +128,8 @@ for af in route route_ipv6; do
 	done
 done
 
+# Avoid exit-code overflows by capping rc to 7-bits:
+[ "$rc" -ge 128 ] && rc=127
+
 exit "$rc"
 
